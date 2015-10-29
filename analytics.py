@@ -52,12 +52,14 @@ class Analytics(object):
       'tid': self.tracking_code, # Tracking code ID.
       't': 'pageview', # Event type
       'cid': self.client_id, # Client ID
-      'aip': '1', # Anonymize IP
-      'qt': int((time.time() - recorded_at) * 1e3), # Queue Time. Delta (milliseconds) between now and when hit was recorded.
+      #'aip': '1', # Anonymize IP
+      #'qt': int((time.time() - recorded_at) * 1e3), # Queue Time. Delta (milliseconds) between now and when hit was recorded.
+      'dh': 'poly-style.appspot.com',
       'dp': path,
-      'an': self.app_name, # Application Name.
-      'av': self.av, # Application Version.
-      'z': time.time() # Cache bust. Probably don't need, but be safe. Should be last param.
+      'dt': 'Service',
+      # 'an': self.app_name, # Application Name.
+      # 'av': self.av, # Application Version.
+      # 'z': time.time() # Cache bust. Probably don't need, but be safe. Should be last param.
     }
 
     encoded_params = urllib.urlencode(params)
@@ -67,6 +69,7 @@ class Analytics(object):
     try:
       response = urllib2.urlopen(url)
       if response.code == 200:
+        print url
         return True
     except urllib2.URLError:
       return False
