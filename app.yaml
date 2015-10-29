@@ -1,0 +1,45 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
+
+handlers:
+
+- url: /demo/
+  static_files: demo/index.html
+  upload: demo/index.html
+  secure: always
+
+- url: /demo
+  static_dir: demo
+  secure: always
+
+- url: /readme
+  static_files: README.md
+  upload: README.md
+  secure: always
+
+- url: .*
+  script: handlers.app
+  secure: always
+
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?bower\.json
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?.*\.bak$
+- ^(.*/)?node_modules/.*
+- ^(.*/)?tests/.*
+# - ^.*.md|markdown

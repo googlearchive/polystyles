@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
+  <title>polystyle help</title>
+  <link rel="shortcut icon" href="p-logo-32.png">
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js" async></script>
+  <link rel="import" href="elements.html">
+  <link rel="import" href="../?url=https://www.polymer-project.org/css/homepage.css">
+  <style is="custom-style" include="shared-styles"></style>
+  <style is="custom-style">
+    body {
+      padding: 32px 48px;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: currentcolor;
+      text-decoration: underline;
+    }
+    :root {
+      --title-padding: 0 0 16px 0;
+    }
+    pre {
+      border-radius: 3px;
+      font-weight: normal;
+      color: #121212;
+    }
+  </style>
+</head>
+<body class="main-purple">
+
+<main>
+  <header>
+    <test-element>
+      <img src="p-logo-32.png">
+    </test-element>
+  </header>
+  <p>Have an existing stylesheet you'd like to use with Polymer's <a href="https://www.polymer-project.org/1.0/docs/devguide/styling.html#style-modules" target="_blank">shared styling system</a>? Use this web service!</p>
+  <template is="dom-bind" id="t">
+    <marked-element markdown="{{response}}">
+      <div class="markdown-html"></div>
+    </marked-element>
+    <iron-ajax url="/readme" auto handle-as="text"
+               last-response="{{response}}" on-response="onResponse"></iron-ajax>
+  </template>
+</main>
+
+<script src="bower_components/code-prettify/src/prettify.js" async></script>
+<script>
+var t = document.querySelector('#t');
+t.onResponse = function(e) {
+  var pres = document.querySelectorAll('marked-element pre');
+  [].forEach.call(pres, function(pre, i) {
+    pre.classList.add('prettyprint');
+  });
+  prettyPrint();
+};
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-39334307-14', 'auto');
+ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/marked-element/marked-element.html">
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="../?id=polymer-styles&url=https://www.polymer-project.org/css/polymer.css">
+
+<dom-module id="test-element">
+  <template>
+    <style include="polymer-styles"></style>
+    <style>
+      :host {
+        display: inline-block;
+        margin: var(--title-padding, 16px);
+      }
+      ::content img {
+        vertical-align: middle;
+      }
+    </style>
+    <h1 class="guide"><content select="img"></content> polystyle <span class="start">web service</span></h1>
+  </template>
+  <script>
+    Polymer({is: 'test-element'});
+  </script>
+</dom-module>
