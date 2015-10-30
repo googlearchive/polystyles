@@ -1,7 +1,7 @@
 ## On-the-fly Polymer style modules
 
 https://poly-style.appspot.com is a web service to wrap existing stylesheets with
-Polymer's shareable [styling system](https://www.polymer-project.org/1.0/docs/devguide/styling.html#style-modules).
+Polymer's [style module system](https://www.polymer-project.org/1.0/docs/devguide/styling.html#style-modules).
 
 ## Usage
 
@@ -79,3 +79,7 @@ In the main project folder, run the rest runner:
 
 The first argument is the location of your App Engine SDK. The second argument is
 the path to the test folder.
+
+## Report issues
+
+File bugs and feature requests at https://github.com/PolymerLabs/polystyles.
