@@ -10,12 +10,12 @@ libraries:
 
 handlers:
 
-- url: /(demo|help)/
+- url: /demo/
   static_files: demo/index.html
   upload: demo/index.html
   secure: always
 
-- url: /(demo|help)
+- url: /demo
   static_dir: demo
   secure: always
 
